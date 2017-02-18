@@ -1,0 +1,25 @@
+{
+  "name": "chat-bot",
+  "version": "1.0.0",
+  "description": "Messaging Platform Chat Bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "body-parser": "*",
+    "cors": "*",
+    "express": "*",
+    "facebook-messenger-bot": "0.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MobileDevelopersOfBerkeley/web-chat-bots.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MobileDevelopersOfBerkeley/web-chat-bots/issues"
+  },
+  "homepage": "https://github.com/MobileDevelopersOfBerkeley/web-chat-bots#readme"
+}
