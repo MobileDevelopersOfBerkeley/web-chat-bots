@@ -22,10 +22,10 @@ app.get('/webhook/', function(req, res) {
 	res.send("Wrong token")
 })
 
-token = "EAACTkZApC13gBADgZB1ZAZCGuZCZCgiAUAzGbYL6CdgZAGSpZBNSjCPAY59eW9DnBN55kHIg6uQTfn5ahSxDcJKAXVXSUZClrtarFsqF1oHKvrGtUd42JlGeNEkJKZCvv1M174CYXfr6Uvks6YI6jKTXRWUbIBKsXTo8n6N9zl4jwJhwZDZD"
+let token = "EAACTkZApC13gBADgZB1ZAZCGuZCZCgiAUAzGbYL6CdgZAGSpZBNSjCPAY59eW9DnBN55kHIg6uQTfn5ahSxDcJKAXVXSUZClrtarFsqF1oHKvrGtUd42JlGeNEkJKZCvv1M174CYXfr6Uvks6YI6jKTXRWUbIBKsXTo8n6N9zl4jwJhwZDZD"
 
 app.post('/webhook', function(req, res) {
-	let messaging_events = req.body.entry[0].messaging_events
+	let messaging_events = req.body.entry[0].messaging
 	for (let i = 0; i < messaging_events.length; i++) {
 		 let event = messaging_events[i]
 		 let sender = event.sender.id
@@ -44,7 +44,7 @@ function sendText(sender, text) {
 		qs: {access_token: token},
 		method: "POST"
 		json: {
-			receipt: {id: sender},
+			recipient: {id: sender},
 			message: messageData
 		}
 	}, function(error, response, body) {
