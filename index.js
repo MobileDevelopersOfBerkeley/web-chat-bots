@@ -26,7 +26,7 @@ app.get('/', function(req, res) {
 //Facebook
 
 
-token = "EAATZAJ36ZCgdsBAEZCgrF9bs76KEOAVgh8cJ6raksLOILGRnFZAam7PZCwH08RrWsNjQJg1Dz2fLaGviZC8NvarFDlGFrsromhOanmwmZCaEOuCyaf0he0W1ZCbwS1AFxx5IWydbTYm8ZBIQCAq8axn2BxsHoNyZA5BKFiRNnWfZB0rBQZDZD"
+let token = "EAATZAJ36ZCgdsBAEZCgrF9bs76KEOAVgh8cJ6raksLOILGRnFZAam7PZCwH08RrWsNjQJg1Dz2fLaGviZC8NvarFDlGFrsromhOanmwmZCaEOuCyaf0he0W1ZCbwS1AFxx5IWydbTYm8ZBIQCAq8axn2BxsHoNyZA5BKFiRNnWfZB0rBQZDZD"
 
 app.get('/webhook/', function(req, res) {
 	if (req.query['hub.verify_token'] === "JaredGutierrez") {
@@ -39,10 +39,10 @@ function sendText(sender, text) {
 	let messageData = {text: text}
 	request({
 		url: "https://graph.facebook.com/v2.6/me/messages",
-		qs: {access_token, token},
+		qs: {access_token: token},
 		method: "POST",
 		json: {
-			receipt: {id: sender},
+			recipient: {id: sender},
 			message: messageData
 		}
 	}, function(error, response, body){
@@ -56,7 +56,7 @@ function sendText(sender, text) {
 
 
 app.post('/webhook/', function(req, res) {
-	let messaging_events = req.body.entry[0].messaging_events
+	let messaging_events = req.body.entry[0].messaging
 	for (let i = 0; i < messaging_events.length; i ++){
 		let event = messaging_events[i]
 		let sender = event.sender.id
