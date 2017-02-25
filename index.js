@@ -57,12 +57,25 @@ function sendText(sender, text) {
 
 app.post('/webhook/', function(req, res) {
 	let messaging_events = req.body.entry[0].messaging
-	for (let i = 0; i < messaging_events.length; i ++){
+	for (let i = 0; i < messaging_events.length; i++){
 		let event = messaging_events[i]
 		let sender = event.sender.id
 		if (event.message && event.message.text) {
 			let text = event.message.text
-			sendText(sender, "Text echo: " + text.substring(0,100))
+			let myInt = Math.floor((Math.random() * 10) + 1);
+			if (myInt < 2) {
+				sendText(sender, "It is certain.")
+			} else if (myInt < 4) {
+				sendText(sender, "It is decidedly so.")
+			} else if (myInt < 6) {
+				sendText(sender, "As I see it, yes")
+			} else if (myInt < 8) {
+				sendText(sender, "Ask again later")
+			} else if (myInt < 10) {
+				sendText(sender, "Don't count on it")
+			} else {
+				sendText(sender, "Text echo: " + text.substring(0,100))
+			}
 		}
 	}
 	res.sendStatus(200)
