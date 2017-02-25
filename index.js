@@ -63,7 +63,7 @@ app.post('/webhook/', function(req, res) {
 		if (event.message && event.message.text) {
 			let text = event.message.text
 			let myInt = Math.floor((Math.random() * 10) + 1);
-			if (text.substr(myString.length -1) != "?") {
+			if (text.substr(text.length -1) != "?") {
 				sendText(sender, "I only reply to questions...")
 			}
 
