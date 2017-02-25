@@ -63,7 +63,11 @@ app.post('/webhook/', function(req, res) {
 		if (event.message && event.message.text) {
 			let text = event.message.text
 			let myInt = Math.floor((Math.random() * 10) + 1);
-			if (myInt < 2) {
+			if (text.substr(myString.length -1) != "?") {
+				sendText(sender, "I only reply to questions...")
+			}
+
+			else if (myInt < 2) {
 				sendText(sender, "It is certain.")
 			} else if (myInt < 4) {
 				sendText(sender, "It is decidedly so.")
