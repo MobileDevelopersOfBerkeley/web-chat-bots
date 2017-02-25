@@ -1,19 +1,20 @@
 {
-  "name": "edward-chatbot",
+  "name": "fb-chatbot",
   "version": "1.0.0",
-  "description": "first chatbot",
+  "description": "fb/node chatbot",
   "main": "index.js",
   "scripts": {
     "test": "test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MobileDevelopersOfBerkeley/web-chat-bots.git"
+    "url": "fb-chatbot"
   },
-  "author": "Edward",
+  "author": "Edward Liu",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/MobileDevelopersOfBerkeley/web-chat-bots/issues"
-  },
-  "homepage": "https://github.com/MobileDevelopersOfBerkeley/web-chat-bots#readme"
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "express": "^4.14.1",
+    "request": "^2.79.0"
+  } 
 }
